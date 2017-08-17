@@ -1,0 +1,40 @@
+657. Judge Route Circle
+这道题是我做的第一道题，提议是上下左右方向键然后回到原点，所以向左和向右是一样的，本人主要使用c++语言
+主要代码是：
+class Solution {
+public:
+    bool judgeCircle(string moves) {
+        if(moves.empty())
+		return true; 
+	int i=0;
+	int u,d,r,l;
+	u=d=r=l=0;
+	while(i<moves.length())
+	{
+		if(moves.at(i)=='U')
+		{
+			u++;
+		}
+		else if(moves.at(i)=='D')
+		{
+			d++;
+		}
+		else if(moves.at(i)=='R')
+		{
+			r++;
+		}
+		else if(moves.at(i)=='L')
+		{
+			l++;
+		}
+		i++;
+	}
+	if(u==d&&r==l)
+	{
+		return true;
+	}
+	else
+		return false;
+    }
+};
+没什么难度，过了
