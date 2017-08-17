@@ -1,0 +1,11 @@
+这道题哈哈，简单题  2^n-1=5+2；8-1=5+2；16-1=7+8；
+主要代码是：
+class Solution {
+public:
+    int findComplement(int num) {
+        int n=log10(num)/log10(2)+1;    //取对数，2的对数
+        int a=1<<n;
+        return a-1-num;
+    }
+};
+主要学习到取对数的函数
