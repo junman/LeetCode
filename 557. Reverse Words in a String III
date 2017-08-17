@@ -1,0 +1,26 @@
+c++里string竟然没有split函数，我很好奇，还有自己重新写呀。。。为什么会没有呢？？？
+主要代码：
+class Solution {
+public:
+    string reverseWords(string s) {
+        vector<string> vr;
+        string::size_type last=s.find_first_not_of(' ',0);
+        string::size_type first=s.find_first_of(' ',last);
+        while(last!=string::npos||first!=string::npos)
+        {
+            vr.push_back(s.substr(last,first-last));
+            last=s.find_first_not_of(' ',first);
+            first=s.find_first_of(' ',last);
+        }
+        string out;
+        for(auto str:vr)
+        {
+            std::reverse(str.begin(),str.end());
+            out=out+str+' ';
+        }
+        if (out.compare("")==0)
+            return "";
+        return out.erase(out.length()-1);
+    }
+};
+主要学习了auto;std::reverse；out.compare；out.erase
