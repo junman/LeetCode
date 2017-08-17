@@ -1,0 +1,57 @@
+计算二进制位有多少位是不同的
+主要代码：
+class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        int a[32],b[32];
+        int m=0;
+        int n=0;
+        int count=0;
+        while(x)     //二进制
+        {
+            a[m]=x%2;
+            x=x/2;
+            m++;
+        }
+        while(y)
+        {
+            b[n]=y%2;
+            y=y/2;
+            n++;
+        }
+
+        if(m>=n)
+        {
+            for(int i=0;i<n;i++)
+            {
+                if(a[i]!=b[i])
+                {
+                    count++;
+                }
+            }
+            for(int i=n;i<m;i++)
+            {
+                if(a[i]==1)
+                    count++;
+            }
+            return count;
+        }
+        else
+        {
+            for(int i=0;i<m;i++)
+            {
+                if(a[i]!=b[i])
+                {
+                    count++;
+                }
+            }
+            for(int i=m;i<n;i++)
+            {
+                if(b[i]==1)
+                    count++;
+            }
+            return count;
+        }
+    }
+};
+简单题
