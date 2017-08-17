@@ -1,0 +1,21 @@
+题意不多说，主要学习到STL里的函数。string里的find_first_of()和find_first_not_of()
+主要代码：
+lass Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        vector<string> out;
+        string s1="qwertyuiopQWERTYUIOP";
+        string s2="asdfghjklASDFGHJKL";
+        string s3="zxcvbnmZXCVBNM";
+        for(auto str:words)
+        {
+            bool u1=str.find_first_of(s1)==string::npos?false:true;   /////////////////!!!!
+            bool u2=str.find_first_of(s2)==string::npos?false:true;
+            bool u3=str.find_first_of(s3)==string::npos?false:true;
+            if(u1+u2+u3==1)
+                out.push_back(str);
+        }
+        return out;
+    }
+};
+大神太多了，别人的代码比自己写的好多了，又短又快，看别人的代码收获更多！
