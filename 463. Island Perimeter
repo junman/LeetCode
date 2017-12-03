@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int sum=0;
+        for(int i=0;i<grid.size();i++)
+        {
+            for (int j = 0; j < grid[0].size(); ++j)
+            {
+                int temp=0;
+                if (grid[i][j]>0)
+                {
+                    if (i-1>=0&&grid[i-1][j]>0)
+                    {
+                        temp++;
+                    }
+                    if (i+1<grid.size()&&grid[i+1][j]>0)
+                    {
+                        temp++;
+                    }
+                    if (j-1>=0&&grid[i][j-1]>0)
+                    {
+                        temp++;
+                    }
+                    if (j+1<grid[0].size()&&grid[i][j+1]>0)
+                    {
+                        temp++;
+                    }
+                    sum+=4-temp;
+                }
+            }
+        }
+        return sum;
+    }
+};
+
+计算方块周围有多少等于1，如果四周全是1，那么总的边加0，就是加上4-n条边。
