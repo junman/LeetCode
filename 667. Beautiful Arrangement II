@@ -1,0 +1,15 @@
+这道题当时想了想也没啥好办法，想到穷举法。。但也可以回溯。。枚举（和穷举。。感觉出入不大）
+回溯法可以提前判定是否有解，但是实行起来挺麻烦的，一个要保障每个元素只用一次，还要保障相邻元素的差
+的个数满足条件，但也是一种办法，目前还未实现出来。。
+更好的方法是discuss里的方法，直接构造法
+class Solution {
+public:
+    vector<int> constructArray(int n, int k) {
+        vector<int>result;
+        for(int i=1,j=n;j>=i;)
+        {
+            result.push_back(k>1  && k-- % 2 == 0 ? j-- : i++);
+        }
+        return result;
+    }
+};
